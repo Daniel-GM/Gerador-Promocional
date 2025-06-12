@@ -17,7 +17,6 @@ function App() {
   const [arrayTabela, setArrayTabela] = useState(null)
   const [total, setTotal] = useState(0)
   const [itemsSelect, setItemsSelect] = useState([])
-  const [currentPage, setCurrentPage] = useState(1)
 
   // Body
   const [page, setPage] = useState(1)
@@ -104,7 +103,7 @@ function App() {
       </Container>
 
       <Container>
-        <ContentCard className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4'}>
+        <ContentCard className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4'>
           <Pagination total={total} perPage={perPage} setPage={setPage} currentPage={page} />
           {arrayProdutos && Array.isArray(arrayProdutos) && arrayProdutos.length > 0 ? (
             arrayProdutos.map((item) => (

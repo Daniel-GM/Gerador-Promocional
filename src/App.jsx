@@ -5,6 +5,7 @@ import ContentCard from "./assets/components/ContentCard"
 import InputFilter from "./assets/components/InputFilter"
 import Pagination from "./assets/components/Pagination"
 import { GetDomain } from "./utils/GetDomain"
+import Item from "./assets/components/Item"
 
 function App() {
   // Style
@@ -37,8 +38,10 @@ function App() {
   })
 
   const handleArrayItemsSelect = (itemSelect) => {
-    if (itemsSelect.includes(itemSelect)) {
-      setItemsSelect(itemsSelect.filter(item => item !== itemSelect))
+    const exists = itemsSelect.some(item => item.id_produto === itemSelect.id_produto)
+
+    if (exists) {
+      setItemsSelect(itemsSelect.filter(item => item.id_produto !== itemSelect.id_produto))
     } else {
       setItemsSelect([...itemsSelect, itemSelect])
     }
@@ -109,27 +112,12 @@ function App() {
             arrayProdutos.map((item) => (
               <div
                 key={item.id_produto}
-                className={`${styleInput} px-0 py-0 cursor-pointer hover:border-emerald-300 transition duration-500 ${itemsSelect.includes(item.id_produto) ? 'text-gray-800 bg-white' : ''}`}
+                className={`${styleInput} px-0 py-0 cursor-pointer hover:border-emerald-300 transition duration-500 ${itemsSelect.some(obj => obj.id_produto === item.id_produto) ? 'text-gray-800 bg-white' : ''}`}
                 onClick={() => {
-                  handleArrayItemsSelect(item.id_produto)
-                  console.log(itemsSelect)
+                  handleArrayItemsSelect(item)
                 }}
               >
-                <div className="flex items-center w-full h-[92px]">
-                  <img
-                    src={item.foto ? `${domain}/uploads/data/${item.foto}` : '/image/img_error_img_not_found.png'}
-                    className="w-1/5 h-full rounded-bl-sm rounded-tl-sm"
-                    onError={(e) => (e.target.src = '/image/img_error_img_not_found.png')}
-                  />
-                  <div className="w-4/5 flex flex-col justify-between items-start h-full px-2 py-2">
-                    <span className="text-wrap text-left line-clamp-2">
-                      {item.nome}
-                    </span>
-                    <span className="font-bold text-lg text-emerald-500">
-                      R${item.valor_venda.replace('.', ',')}
-                    </span>
-                  </div>
-                </div>
+                <Item item={item} domain={domain} />
               </div>
             ))
           ) : (
@@ -138,7 +126,17 @@ function App() {
           <Pagination total={total} perPage={perPage} setPage={setPage} currentPage={page} />
         </ContentCard>
       </Container>
-    </div>
+
+      <Container>
+        <ContentCard className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4'>
+          {itemsSelect.map((item) => (
+            <div key={item.id_produto} className={`${styleInput} px-0 py-0 cursor-pointer hover:border-emerald-300 transition duration-500`}>
+              <Item key={item.id} item={item} domain={domain} />
+            </div>
+          ))}
+        </ContentCard>
+      </Container>
+    </div >
   )
 }
 

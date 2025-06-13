@@ -1,4 +1,4 @@
-const Pagination = ({ total, perPage, setPage, currentPage }) => {
+const Pagination = ({ total, perPage, setPage, currentPage, styleFullWidthCol }) => {
   const maxPages = Math.ceil(total / perPage)
   const pages = Array.from({ length: maxPages }, (_, index) => index + 1)
 
@@ -17,7 +17,7 @@ const Pagination = ({ total, perPage, setPage, currentPage }) => {
   }
 
   return (
-    <div className="col-span-1 md:col-span-2 lg:col-span-3 h-full flex justify-center items-center flex-wrap gap-2">
+    <div className={`${styleFullWidthCol} h-full flex justify-center items-center flex-wrap gap-2`}>
       <button
         onClick={() => handleChangePreviousPage()}
         className={`font-bold text-xl border-2 border-gray-700 px-1 rounded-md hover:border-emerald-400 transition duration-300 ${currentPage !== 1

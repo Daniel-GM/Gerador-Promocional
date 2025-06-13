@@ -10,6 +10,16 @@ import Item from "./assets/components/Item"
 function App() {
   // Style
   const styleInput = "border-2 border-gray-400 p-2 w-full flex items-center justify-between rounded-md"
+  const styleFullWidthCol = "col-span-1 md:col-span-2 lg:col-span-3"
+  const gridItemsResponsive = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4"
+  const styleButton = "text-white py-1 px-2 cursor-pointer bg-emerald-600 rounded-md w-full hover:text-black hover:bg-emerald-500 transition duration-150"
+
+  // Stage
+  const stage = [
+    {"id": 1, "stage": "selectProducts"},
+    {"id": 2, "stage": "createSale"},
+    {"id": 3, "stage": "Download"}
+  ]
 
   // Data
   // const domain = GetDomain()
@@ -21,7 +31,7 @@ function App() {
 
   // Body
   const [page, setPage] = useState(1)
-  const [perPage, setPerPage] = useState(18)
+  const [perPage, setPerPage] = useState(10)
 
   // Inputs
   const [tabela, setTabela] = useState(1)
@@ -96,7 +106,7 @@ function App() {
             <InputFilter style={styleInput} label={"Código"} setState={setCodigoProduto} />
             <InputFilter style={styleInput} label={"Código de barras"} setState={setCodigoBarrasProduto} />
             <button
-              className={`text-white col-span-2 py-1 px-2 cursor-pointer bg-emerald-600 rounded-md w-full hover:text-black hover:bg-emerald-500 transition duration-150`}
+              className={`${styleButton} col-span-2`}
               onClick={handleSetSearch}
             >
               Buscar produtos
@@ -106,8 +116,11 @@ function App() {
       </Container>
 
       <Container>
-        <ContentCard className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4'>
-          <Pagination total={total} perPage={perPage} setPage={setPage} currentPage={page} />
+        <ContentCard className={`${gridItemsResponsive}`}>
+          <h2 className={`text-2xl ${styleFullWidthCol}`}>
+            Selecione os produtos para gerar a promoção
+          </h2>
+          <Pagination total={total} perPage={perPage} setPage={setPage} currentPage={page} styleFullWidthCol={styleFullWidthCol} />
           {arrayProdutos && Array.isArray(arrayProdutos) && arrayProdutos.length > 0 ? (
             arrayProdutos.map((item) => (
               <div
@@ -123,17 +136,27 @@ function App() {
           ) : (
             <p className="text-center col-span-3">Nenhum produto encontrado.</p>
           )}
-          <Pagination total={total} perPage={perPage} setPage={setPage} currentPage={page} />
+          <Pagination total={total} perPage={perPage} setPage={setPage} currentPage={page} styleFullWidthCol={styleFullWidthCol} />
         </ContentCard>
       </Container>
 
       <Container>
-        <ContentCard className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4'>
-          {itemsSelect.map((item) => (
-            <div key={item.id_produto} className={`${styleInput} px-0 py-0 cursor-pointer hover:border-emerald-300 transition duration-500`}>
-              <Item key={item.id} item={item} domain={domain} />
-            </div>
-          ))}
+        <ContentCard className={`${gridItemsResponsive}`}>
+          <h2 className={`text-2xl ${styleFullWidthCol}`}>
+            Produtos selecionados para gerar a promoção
+          </h2>
+          {itemsSelect && Array.isArray(itemsSelect) && itemsSelect.length > 0 ? (
+            itemsSelect.map((item) => (
+              <div key={item.id_produto} className={`${styleInput} px-0 py-0 cursor-pointer hover:border-emerald-300 transition duration-500`}>
+                <Item key={item.id} item={item} domain={domain} />
+              </div>
+            ))
+          ) : (
+            <p className="text-center col-span-3">Nenhum produto selecionado.</p>
+          )}
+          <button className={`${styleButton} ${styleFullWidthCol}`}>
+            Gerar Imagem
+          </button>
         </ContentCard>
       </Container>
     </div >

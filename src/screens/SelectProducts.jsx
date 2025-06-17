@@ -15,7 +15,7 @@ function SelectProducts({ setStage }) {
     setNomeProduto, setCodigoProduto, setCodigoBarrasProduto,
     setPage, handleSetSearch, handleArrayItemsSelect,
     styleInput, styleFullWidthCol, gridItemsResponsive,
-    styleButton
+    styleButtonConfirm, styleButtonErro
   } = useAppContext()
 
   return (
@@ -28,7 +28,7 @@ function SelectProducts({ setStage }) {
             <InputFilter style={styleInput} label={"Produto"} setState={setNomeProduto} />
             <InputFilter style={styleInput} label={"Código"} setState={setCodigoProduto} />
             <InputFilter style={styleInput} label={"Código de barras"} setState={setCodigoBarrasProduto} />
-            <button className={`${styleButton} col-span-2`} onClick={handleSetSearch}>
+            <button className={`${styleButtonConfirm} col-span-2`} onClick={handleSetSearch}>
               Buscar produtos
             </button>
           </div>
@@ -42,13 +42,17 @@ function SelectProducts({ setStage }) {
 
           {arrayProdutos?.length > 0 ? (
             arrayProdutos.map((item) => (
-              <div key={item.id_produto} className={`${styleInput} px-0 py-0 cursor-pointer hover:border-emerald-300 transition duration-500 ${itemsSelect.some(obj => obj.id_produto === item.id_produto) ? 'text-gray-800 bg-white' : ''}`}
-                onClick={() => handleArrayItemsSelect(item)}>
+              <div
+                key={item.id_produto}
+                className={`${styleInput} px-0 py-0 cursor-pointer hover:border-emerald-300 transition duration-500 ${itemsSelect.some(obj => obj.id_produto === item.id_produto) ? 'text-gray-800 bg-white' : ''}`}
+                onClick={() => handleArrayItemsSelect(item)}
+              >
                 <Item item={item} domain={domain} />
               </div>
             ))
           ) : (
-            <p className="text-center col-span-3">Nenhum produto encontrado.</p>
+            <p
+              className="text-center col-span-3">Nenhum produto encontrado.</p>
           )}
 
           <Pagination total={total} perPage={perPage} setPage={setPage} currentPage={page} styleFullWidthCol={styleFullWidthCol} />
@@ -60,7 +64,11 @@ function SelectProducts({ setStage }) {
           <h2 className={`text-2xl ${styleFullWidthCol}`}>Produtos selecionados para gerar a promoção</h2>
           {itemsSelect.length > 0 ? (
             itemsSelect.map((item) => (
-              <div key={item.id_produto} className={`${styleInput} px-0 py-0 cursor-pointer hover:border-emerald-300 transition duration-500`}>
+              <div
+                key={item.id_produto}
+                className={`${styleInput} px-0 py-0 cursor-pointer hover:border-emerald-300 transition duration-500`}
+                onClick={() => handleArrayItemsSelect(item)}
+              >
                 <Item item={item} domain={domain} />
               </div>
             ))
@@ -68,7 +76,7 @@ function SelectProducts({ setStage }) {
             <p className="text-center col-span-3">Nenhum produto selecionado.</p>
           )}
 
-          <button className={`${styleButton} ${styleFullWidthCol}`} onClick={() => setStage("createSale")}>
+          <button className={`${styleButtonConfirm} ${styleFullWidthCol}`} onClick={() => setStage("createSale")}>
             Gerar Imagem
           </button>
         </ContentCard>

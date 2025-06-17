@@ -9,7 +9,8 @@ export const AppProvider = ({ children }) => {
   const styleInput = "border-2 border-gray-400 p-2 w-full flex items-center justify-between rounded-md"
   const styleFullWidthCol = "col-span-1 md:col-span-2 lg:col-span-3"
   const gridItemsResponsive = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4"
-  const styleButton = "text-white py-1 px-2 cursor-pointer bg-emerald-600 rounded-md w-full hover:text-black hover:bg-emerald-500 transition duration-150"
+  const styleButtonConfirm = "text-white py-1 px-2 cursor-pointer bg-emerald-600 rounded-md w-full hover:text-black hover:bg-emerald-500 transition duration-150"
+  const styleButtonErro = "text-white py-1 px-2 cursor-pointer bg-red-600 rounded-md w-full hover:text-black hover:bg-red-500 transition duration-150"
 
   // Data
   // const domain = GetDomain()
@@ -101,7 +102,8 @@ export const AppProvider = ({ children }) => {
       handleSetSearch, handleArrayItemsSelect,
 
       /* styles */
-      styleInput, styleFullWidthCol, gridItemsResponsive, styleButton
+      styleInput, styleFullWidthCol, gridItemsResponsive, 
+      styleButtonConfirm, styleButtonErro
     }} >
       {children}
     </AppContext.Provider>

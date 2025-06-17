@@ -1,6 +1,14 @@
-const ImageArea = ({ children }) => {
+const ImageArea = ({ children, className, width = 1080, height = 1920, bgColor, textColor }) => {
   return (
-    <div className="min-w-[1080px] min-h-[1920px] flex flex-col p-12 items-center justify-between gap-5">
+    <div 
+      className={`text-black flex flex-col justify-between items-center p-12 gap-5 ${className || ''}`}
+      style={{
+        width: `${width}px`,
+        height: `${height}px`,
+        backgroundColor: bgColor,
+        color: textColor
+      }}
+    >
       {children}
     </div>
   )

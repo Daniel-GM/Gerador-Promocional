@@ -4,8 +4,8 @@ import DownloadPage from './screens/DownloadPage'
 import { useState } from 'react'
 
 const HomePage = () => {
-  // const [stage, setStage] = useState("selectProducts")
-  const [stage, setStage] = useState("createSale")
+  const [stage, setStage] = useState("selectProducts")
+  // const [stage, setStage] = useState("createSale")
 
   return (
     <>

@@ -1,3 +1,6 @@
+// Import font
+import '@fontsource/geist-sans'
+
 // Import components
 import Container from '../assets/components/Container'
 import ContentCard from '../assets/components/ContentCard'
@@ -7,7 +10,8 @@ import Item from "../assets/components/Item"
 
 // Import context
 import { useAppContext } from "../AppContext"
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { toPng } from 'html-to-image'
 import InputRange from '../assets/components/InputRange'
 import InputColor from '../assets/components/InputColor'
 import RenderContent from '../assets/components/RenderContent'
@@ -30,10 +34,27 @@ const CreateSale = ({ setStage }) => {
     styleButtonConfirm, styleButtonErro
   } = useAppContext()
 
+  const realImageRef = useRef(null)
+
+  const handleDownloadImage = () => {
+    if (realImageRef.current) {
+      toPng(realImageRef.current)
+        .then((dataUrl) => {
+          const link = document.createElement('a');
+          link.download = 'encarte.png';
+          link.href = dataUrl;
+          link.click();
+        })
+        .catch((err) => {
+          console.error('Erro ao gerar imagem', err);
+        });
+    }
+  }
+
   return (
     <FullScreen >
       <Container>
-        <ContentCard className={'grid grid-cols-3'}>
+        <ContentCard className={'grid grid-cols-4'}>
           <InputRange value={scale} setValue={setScale} step={0.01} min={0.01} max={1} mode={'%'} label={`Escala da pré-visualização: ${(scale * 100).toFixed(0)}`} />
           <InputColor label={'Cor de fundo'} setInput={setBgColor} />
           <InputColor label={'Cor do texto'} setInput={setTextColor} />
@@ -53,10 +74,29 @@ const CreateSale = ({ setStage }) => {
                   justifyContent: 'center',
                 }}
               >
-                <ImageArea bgColor={bgColor} >
+                <ImageArea
+                  bgColor={bgColor} >
                   <RenderContent itemsSelect={itemsSelect} domain={domain} textColor={textColor} priceColor={priceColor} />
                 </ImageArea>
               </div>
+            </div>
+          </div>
+          <div
+            style={{
+              position: 'absolute',
+              top: -1000,
+              left: -1920,
+              overflow: 'hidden',
+              opacity: 0,
+              pointerEvents: 'none',
+              zIndex: -1,
+            }}
+          >
+            <div ref={realImageRef}>
+              <ImageArea
+                bgColor={bgColor} >
+                <RenderContent itemsSelect={itemsSelect} domain={domain} textColor={textColor} priceColor={priceColor} />
+              </ImageArea>
             </div>
           </div>
           <div className='flex mt-4 gap-4'>
@@ -66,7 +106,7 @@ const CreateSale = ({ setStage }) => {
             >
               Voltar
             </button>
-            <button className={`${styleButtonConfirm} ${styleFullWidthCol}`} onClick={() => setStage("createSale")}>
+            <button className={`${styleButtonConfirm} ${styleFullWidthCol}`} onClick={handleDownloadImage}>
               Baixar
             </button>
           </div>

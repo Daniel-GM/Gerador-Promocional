@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, useCallback, Children } from 'react'
+import { GetDomain } from './utils/GetDomain'
 
 const AppContext = createContext()
 

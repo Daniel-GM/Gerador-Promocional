@@ -1,4 +1,4 @@
-const InputColor = ({ label = '', setInput }) => {
+const InputColor = ({ label = '', value, setInput }) => {
   return (
     <div className="flex flex-col gap-0 justify-between h-full">
       <label className="text-white text-2xl">{label}</label>
@@ -6,6 +6,7 @@ const InputColor = ({ label = '', setInput }) => {
         <input 
           type="color" 
           className=""
+          value={value}
           onChange={(e) => setInput(e.target.value)}
         />
       </div>

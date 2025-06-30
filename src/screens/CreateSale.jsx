@@ -58,7 +58,7 @@ const CreateSale = ({ setStage }) => {
   return (
     <FullScreen >
       <Container>
-        <ContentCard className={'grid grid-cols-4 gap-y-4'}>
+        <ContentCard className={'grid grid-cols-4 gap-y-8'}>
           <InputRange value={scale} setValue={setScale} step={0.01} min={0.01} max={1} mode={'%'} label={`Escala da pré-visualização: ${(scale * 100).toFixed(0)}`} />
           <InputColor label={'Cor de fundo'} value={bgColor} setValue={setBgColor} />
           <InputColor label={'Cor do texto'} value={textColor} setValue={setTextColor} />

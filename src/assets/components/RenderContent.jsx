@@ -72,7 +72,7 @@ const RenderContent = ({ textColor, priceColor }) => {
           style={{ backgroundColor: '#cfcff133', color: textColor }}
         >
           {adress ? (
-            <div className="flex gap-4 w-1/2">
+            <div className="flex items-center gap-4 w-1/2">
               <CiLocationOn size={60} />
               <span className="text-adjust">
                 {adress}
@@ -82,7 +82,7 @@ const RenderContent = ({ textColor, priceColor }) => {
           )}
 
           {openingHoursWeek || openingHoursWeekend ? (
-            <div className="flex gap-4 w-1/2">
+            <div className="flex items-center gap-4 w-1/2">
               <LuAlarmClock size={60} />
               <div className="flex flex-col text-adjust">
                 <p>

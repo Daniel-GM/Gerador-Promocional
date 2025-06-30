@@ -15,7 +15,7 @@ function SelectProducts({ setStage }) {
     setNomeProduto, setCodigoProduto, setCodigoBarrasProduto,
     setPage, handleSetSearch, handleArrayItemsSelect,
     styleInput, styleFullWidthCol, gridItemsResponsive,
-    styleButtonConfirm, styleButtonErro
+    styleButtonConfirm
   } = useAppContext()
 
   return (

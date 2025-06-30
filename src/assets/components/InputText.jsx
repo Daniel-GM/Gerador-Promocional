@@ -1,12 +1,15 @@
-const InputColor = ({ label = '', value, setValue }) => {
+const InputText = ({ label, value, setValue  }) => {
+
+  
   return (
     <div className="flex flex-col gap-0 justify-between h-full">
       <label className="text-white text-2xl">{label}</label>
       <div className="flex items-center gap-1 justify-center">
-        <input 
-          type="color" 
-          className=""
+        <input
+          type="text"
+          className="w-full bg-white rounded-2xl text-black px-2"
           value={value}
+          placeholder="Promoção válida somente por Pix"
           onChange={(e) => setValue(e.target.value)}
         />
       </div>
@@ -14,4 +17,4 @@ const InputColor = ({ label = '', value, setValue }) => {
   )
 }
 
-export default InputColor
+export default InputText

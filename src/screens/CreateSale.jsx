@@ -15,6 +15,7 @@ import { toPng } from 'html-to-image'
 import InputRange from '../assets/components/InputRange'
 import InputColor from '../assets/components/InputColor'
 import RenderContent from '../assets/components/RenderContent'
+import InputText from '../assets/components/InputText'
 
 const CreateSale = ({ setStage }) => {
   const [scale, setScale] = useState(0.5)
@@ -31,7 +32,8 @@ const CreateSale = ({ setStage }) => {
     setNomeProduto, setCodigoProduto, setCodigoBarrasProduto,
     setPage, handleSetSearch, handleArrayItemsSelect,
     styleInput, styleFullWidthCol, gridItemsResponsive,
-    styleButtonConfirm, styleButtonErro
+    styleButtonConfirm, styleButtonErro, observation,
+    setObservation
   } = useAppContext()
 
   const realImageRef = useRef(null)
@@ -54,11 +56,13 @@ const CreateSale = ({ setStage }) => {
   return (
     <FullScreen >
       <Container>
-        <ContentCard className={'grid grid-cols-4'}>
+        <ContentCard className={'grid grid-cols-4 gap-y-4'}>
           <InputRange value={scale} setValue={setScale} step={0.01} min={0.01} max={1} mode={'%'} label={`Escala da pré-visualização: ${(scale * 100).toFixed(0)}`} />
-          <InputColor label={'Cor de fundo'} value={bgColor} setInput={setBgColor} />
-          <InputColor label={'Cor do texto'} value={textColor} setInput={setTextColor} />
-          <InputColor label={'Cor do preço'} value={priceColor} setInput={setPriceColor} />
+          <InputColor label={'Cor de fundo'} value={bgColor} setValue={setBgColor} />
+          <InputColor label={'Cor do texto'} value={textColor} setValue={setTextColor} />
+          <InputColor label={'Cor do preço'} value={priceColor} setValue={setPriceColor} />
+          <InputText label={'Observação'}  value={observation} setValue={setObservation} />
+
         </ContentCard>
 
         <ContentCard className="h-full">
@@ -76,7 +80,7 @@ const CreateSale = ({ setStage }) => {
               >
                 <ImageArea
                   bgColor={bgColor} >
-                  <RenderContent itemsSelect={itemsSelect} domain={domain} textColor={textColor} priceColor={priceColor} />
+                  <RenderContent textColor={textColor} priceColor={priceColor} />
                 </ImageArea>
               </div>
             </div>
@@ -95,7 +99,7 @@ const CreateSale = ({ setStage }) => {
             <div ref={realImageRef}>
               <ImageArea
                 bgColor={bgColor} >
-                <RenderContent itemsSelect={itemsSelect} domain={domain} textColor={textColor} priceColor={priceColor} />
+                <RenderContent textColor={textColor} priceColor={priceColor} />
               </ImageArea>
             </div>
           </div>

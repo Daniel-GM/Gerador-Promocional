@@ -1,8 +1,14 @@
 // Import icon
 import { CiLocationOn } from "react-icons/ci";
 import { LuAlarmClock } from "react-icons/lu";
+import { useAppContext } from "../../AppContext"
 
-const RenderContent = ({ itemsSelect, domain, textColor, priceColor }) => {
+const RenderContent = ({ textColor, priceColor }) => {
+  const {
+      itemsSelect, domain, observation,
+      setObservation
+    } = useAppContext()
+
   return (
     <>
       <div className="w-60 h-60 flex justify-center items-center">
@@ -17,7 +23,7 @@ const RenderContent = ({ itemsSelect, domain, textColor, priceColor }) => {
           color: textColor
         }}
       >
-        <span>Promoção válida somente por Pix</span>
+        <span>{observation}</span>
       </div>
 
       <div className='h-[75%] w-full flex flex-wrap justify-center items-center content-start gap-4'>
@@ -30,7 +36,7 @@ const RenderContent = ({ itemsSelect, domain, textColor, priceColor }) => {
                 onError={(e) => (e.target.src = '/image/img_error_img_not_found.png')}
               />
               <span
-                className='text-left text-3xl absolute top-10 left-65'
+                className='text-left text-3xl absolute top-10 left-65 line-clamp-4'
                 style={{
                   color: textColor
                 }}

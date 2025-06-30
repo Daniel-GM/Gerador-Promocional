@@ -33,7 +33,8 @@ const CreateSale = ({ setStage }) => {
     setPage, handleSetSearch, handleArrayItemsSelect,
     styleInput, styleFullWidthCol, gridItemsResponsive,
     styleButtonConfirm, styleButtonErro, observation,
-    setObservation
+    setObservation, adress, setAdress, openingHoursWeek, 
+    setOpeningHoursWeek, openingHoursWeekend, setOpeningHoursWeekend,
   } = useAppContext()
 
   const realImageRef = useRef(null)
@@ -61,7 +62,11 @@ const CreateSale = ({ setStage }) => {
           <InputColor label={'Cor de fundo'} value={bgColor} setValue={setBgColor} />
           <InputColor label={'Cor do texto'} value={textColor} setValue={setTextColor} />
           <InputColor label={'Cor do preço'} value={priceColor} setValue={setPriceColor} />
-          <InputText label={'Observação'}  value={observation} setValue={setObservation} />
+
+          <InputText label={'Observação'} placeholder={"Promoção válida somente por Pix"} value={observation} setValue={setObservation} />
+          <InputText label={'Localização'} placeholder={"Av. José Júlio da Costa, 1710 Ideal, Ipatinga – MG, 35162-189"} value={adress} setValue={setAdress} />
+          <InputText label={'Horário de funcionamento (semana)'} placeholder={"Segunda a Sexta: 08:00 ás 18:00"} value={openingHoursWeek} setValue={setOpeningHoursWeek} />
+          <InputText label={'Horário de funcionamento (final de semana)'} placeholder={"Sábado: 08:00 ás 12:00"} value={openingHoursWeekend} setValue={setOpeningHoursWeekend} />
 
         </ContentCard>
 

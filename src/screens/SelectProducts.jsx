@@ -5,6 +5,7 @@ import InputFilter from "../assets/components/InputFilter"
 import Pagination from "../assets/components/Pagination"
 import Item from "../assets/components/Item"
 import { useAppContext } from "../AppContext"
+import InputText from "../assets/components/InputText"
 
 function SelectProducts({ setStage }) {
 
@@ -28,6 +29,7 @@ function SelectProducts({ setStage }) {
             <InputFilter style={styleInput} label={"Produto"} setState={setNomeProduto} />
             <InputFilter style={styleInput} label={"Código"} setState={setCodigoProduto} />
             <InputFilter style={styleInput} label={"Código de barras"} setState={setCodigoBarrasProduto} />
+            
             <button className={`${styleButtonConfirm} col-span-2`} onClick={handleSetSearch}>
               Buscar produtos
             </button>

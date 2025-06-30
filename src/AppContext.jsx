@@ -31,6 +31,9 @@ export const AppProvider = ({ children }) => {
   const [codigoProduto, setCodigoProduto] = useState("")
   const [codigoBarrasProduto, setCodigoBarrasProduto] = useState("")
   const [observation, setObservation] = useState("")
+  const [adress, setAdress] = useState("")
+  const [openingHoursWeek, setOpeningHoursWeek] = useState("")
+  const [openingHoursWeekend, setOpeningHoursWeekend] = useState("")
 
   // Current value for search
   const [searchParams, setSearchParams] = useState({
@@ -96,15 +99,18 @@ export const AppProvider = ({ children }) => {
       /* states */
       arrayProdutos, arrayTabela, total,
       itemsSelect, page, perPage,
-      searchParams, observation,
+      searchParams, observation, adress,
+      openingHoursWeek, openingHoursWeekend,
 
       /* function */
       setArrayTabela, setTabela, setNomeProduto,
       setCodigoProduto, setCodigoBarrasProduto, setPage,
       handleSetSearch, handleArrayItemsSelect, setObservation,
+      setPerPage, setAdress, setOpeningHoursWeek,
+      setOpeningHoursWeekend,
 
       /* styles */
-      styleInput, styleFullWidthCol, gridItemsResponsive, 
+      styleInput, styleFullWidthCol, gridItemsResponsive,
       styleButtonConfirm, styleButtonErro
     }} >
       {children}

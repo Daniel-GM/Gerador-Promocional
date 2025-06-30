@@ -5,9 +5,9 @@ import { useAppContext } from "../../AppContext"
 
 const RenderContent = ({ textColor, priceColor }) => {
   const {
-      itemsSelect, domain, observation,
-      setObservation
-    } = useAppContext()
+    itemsSelect, domain, observation,
+    adress, openingHoursWeek, openingHoursWeekend
+  } = useAppContext()
 
   return (
     <>
@@ -65,29 +65,41 @@ const RenderContent = ({ textColor, priceColor }) => {
         )}
       </div>
 
-      <div
-        className="text-2xl border-2 rounded-2xl p-2 flex gap-2 text-left"
-        style={{ backgroundColor: '#cfcff133', color: textColor }}
-      >
-        <div className="flex gap-4 w-1/2">
-          <CiLocationOn size={60} />
-          <span className="text-adjust">
-            Av. José Júlio da Costa, 1710 Ideal, Ipatinga – MG, 35162-189
-          </span>
-        </div>
 
-        <div className="flex gap-4 w-1/2">
-          <LuAlarmClock size={60} />
-          <div className="flex flex-col text-adjust">
-            <p>
-              Segunda a Sexta: 08:00 ás 18:00
-            </p>
-            <p>
-              Sábado: 08:00 ás 12:00
-            </p>
-          </div>
+      {adress || openingHoursWeek || openingHoursWeekend ? (
+        <div
+          className="text-2xl border-2 rounded-2xl p-2 flex gap-2 text-left w-full"
+          style={{ backgroundColor: '#cfcff133', color: textColor }}
+        >
+          {adress ? (
+            <div className="flex gap-4 w-1/2">
+              <CiLocationOn size={60} />
+              <span className="text-adjust">
+                {adress}
+              </span>
+            </div>) : (
+            ""
+          )}
+
+          {openingHoursWeek || openingHoursWeekend ? (
+            <div className="flex gap-4 w-1/2">
+              <LuAlarmClock size={60} />
+              <div className="flex flex-col text-adjust">
+                <p>
+                  {openingHoursWeek}
+                </p>
+                <p>
+                  {openingHoursWeekend}
+                </p>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
-      </div>
+      ) : (
+        ""
+      )}
 
       <div>
         <span

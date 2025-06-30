@@ -1,4 +1,4 @@
-const InputText = ({ label, value, setValue  }) => {
+const InputText = ({ label, value, setValue, placeholder=''  }) => {
 
   
   return (
@@ -9,7 +9,7 @@ const InputText = ({ label, value, setValue  }) => {
           type="text"
           className="w-full bg-white rounded-2xl text-black px-2"
           value={value}
-          placeholder="Promoção válida somente por Pix"
+          placeholder={placeholder}
           onChange={(e) => setValue(e.target.value)}
         />
       </div>

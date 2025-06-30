@@ -59,7 +59,7 @@ const CreateSale = ({ setStage }) => {
     <FullScreen >
       <Container>
         <ContentCard className={'grid grid-cols-4 gap-y-8'}>
-          <InputRange value={scale} setValue={setScale} step={0.01} min={0.01} max={1} mode={'%'} label={`Escala da pré-visualização: ${(scale * 100).toFixed(0)}`} />
+          <InputRange value={scale} setValue={setScale} step={0.01} min={0.01} max={1} mode={'%'} label={`Escala da pré-visualização: ${(scale * 100).toFixed(0)}%`} />
           <InputColor label={'Cor de fundo'} value={bgColor} setValue={setBgColor} />
           <InputColor label={'Cor do texto'} value={textColor} setValue={setTextColor} />
           <InputColor label={'Cor do preço'} value={priceColor} setValue={setPriceColor} />
@@ -68,6 +68,9 @@ const CreateSale = ({ setStage }) => {
           <InputText label={'Localização'} style={styleInput} placeholder={"Av. José Júlio da Costa, 1710 Ideal, Ipatinga – MG, 35162-189"} value={adress} setValue={setAdress} />
           <InputText label={'Horário de funcionamento (semana)'} style={styleInput} placeholder={"Segunda a Sexta: 08:00 ás 18:00"} value={openingHoursWeek} setValue={setOpeningHoursWeek} />
           <InputText label={'Horário de funcionamento (final de semana)'} style={styleInput} placeholder={"Sábado: 08:00 ás 12:00"} value={openingHoursWeekend} setValue={setOpeningHoursWeekend} />
+
+          <InputRange value={logoWidth} setValue={setLogoWidth} step={1} min={1} max={492} mode={'px'} label={`Largura: ${logoWidth === 'auto' ? 'auto' : logoWidth+'px'}`} />
+          <InputRange value={logoHeight} setValue={setLogoHeight} step={1} min={1} max={115} mode={'px'} label={`Altura: ${logoHeight  === 'auto' ? 'auto' : logoHeight+'px'}`} />
 
         </ContentCard>
 

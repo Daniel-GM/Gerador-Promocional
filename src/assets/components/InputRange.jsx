@@ -3,8 +3,8 @@ const InputRange = ({ value, setValue, step, min, max, mode, label, sistemaNumer
   const newValue = sistemaNumerico === "decimal" ? value : parseInt(value, 16)
   
   return (
-    <div className="flex flex-col gap-0 justify-between h-full">
-      <label className="text-white text-2xl">{label}{mode}</label>
+    <div className="flex flex-col gap-0 justify-between h-full px-2">
+      <label className="text-white text-xl">{label}</label>
       <div className="flex items-center gap-1 justify-center">
         <input
           type="range"

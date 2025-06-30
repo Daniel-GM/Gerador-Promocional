@@ -3,7 +3,7 @@ const InputText = ({ label, value, setValue, placeholder='', style  }) => {
   
   return (
     <div className="flex flex-col gap-0 justify-end h-full px-2">
-      <label className="text-white text-2xl">{label}</label>
+      <label className="text-white text-xl">{label}</label>
       <div className="flex items-center gap-1 justify-center">
         <input
           type="text"

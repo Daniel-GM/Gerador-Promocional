@@ -11,7 +11,7 @@ const RenderContent = ({ textColor, priceColor }) => {
 
   return (
     <>
-      <div className="w-60 h-60 flex justify-center items-center">
+      <div className="w-full h-60 flex justify-center items-center">
         <img
           className=""
           src='/image/logo.png'

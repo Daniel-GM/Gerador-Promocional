@@ -6,6 +6,8 @@ import Pagination from "../assets/components/Pagination"
 import Item from "../assets/components/Item"
 import { useAppContext } from "../AppContext"
 import InputText from "../assets/components/InputText"
+import InputNumber from "../assets/components/InputNumber"
+import { useEffect } from "react"
 
 function SelectProducts({ setStage }) {
 
@@ -14,10 +16,14 @@ function SelectProducts({ setStage }) {
     itemsSelect, page, perPage,
     domain, setArrayTabela, setTabela,
     setNomeProduto, setCodigoProduto, setCodigoBarrasProduto,
-    setPage, handleSetSearch, handleArrayItemsSelect,
-    styleInput, styleFullWidthCol, gridItemsResponsive,
-    styleButtonConfirm
+    setPage, setPerPage, handleSetSearch, 
+    handleArrayItemsSelect, styleInput, styleFullWidthCol, 
+    gridItemsResponsive,styleButtonConfirm
   } = useAppContext()
+
+  useEffect(() => {
+  handleSetSearch()
+}, [perPage])
 
   return (
     <div className="h-full min-h-screen bg-gray-900 text-white">
@@ -29,6 +35,7 @@ function SelectProducts({ setStage }) {
             <InputFilter style={styleInput} label={"Produto"} setState={setNomeProduto} />
             <InputFilter style={styleInput} label={"Código"} setState={setCodigoProduto} />
             <InputFilter style={styleInput} label={"Código de barras"} setState={setCodigoBarrasProduto} />
+            <InputNumber style={styleInput} label={"Produtos por página"} setState={setPerPage} />
             
             <button className={`${styleButtonConfirm} col-span-2`} onClick={handleSetSearch}>
               Buscar produtos

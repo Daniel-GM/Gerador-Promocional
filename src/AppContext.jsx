@@ -30,6 +30,14 @@ export const AppProvider = ({ children }) => {
   const [nomeProduto, setNomeProduto] = useState("")
   const [codigoProduto, setCodigoProduto] = useState("")
   const [codigoBarrasProduto, setCodigoBarrasProduto] = useState("")
+
+  // Promo inputs configs
+  const [scale, setScale] = useState(0.5)
+  const [bgColor, setBgColor] = useState("#ffffff")
+  const [textColor, setTextColor] = useState("#000000")
+  const [priceColor, setPriceColor] = useState("#000000")
+  const [logoWidth, setLogoWidth] = useState('auto')
+  const [logoHeight, setLogoHeight] = useState('auto')
   const [observation, setObservation] = useState("")
   const [adress, setAdress] = useState("")
   const [openingHoursWeek, setOpeningHoursWeek] = useState("")
@@ -99,13 +107,17 @@ export const AppProvider = ({ children }) => {
       /* states */
       arrayProdutos, arrayTabela, total,
       itemsSelect, page, perPage,
-      searchParams, observation, adress,
+      searchParams, scale, bgColor,
+      textColor, priceColor, logoWidth,
+      logoHeight, observation, adress,
       openingHoursWeek, openingHoursWeekend,
 
       /* function */
       setArrayTabela, setTabela, setNomeProduto,
       setCodigoProduto, setCodigoBarrasProduto, setPage,
-      handleSetSearch, handleArrayItemsSelect, setObservation,
+      handleSetSearch, handleArrayItemsSelect, setScale,
+      setBgColor, setTextColor, setPriceColor,
+      setLogoWidth, setLogoHeight, setObservation,
       setPerPage, setAdress, setOpeningHoursWeek,
       setOpeningHoursWeekend,
 

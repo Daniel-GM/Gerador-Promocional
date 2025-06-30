@@ -3,17 +3,22 @@ import { CiLocationOn } from "react-icons/ci";
 import { LuAlarmClock } from "react-icons/lu";
 import { useAppContext } from "../../AppContext"
 
-const RenderContent = ({ textColor, priceColor }) => {
+const RenderContent = () => {
   const {
     itemsSelect, domain, observation,
     adress, openingHoursWeek, openingHoursWeekend,
+    textColor, priceColor, logoWidth,
+    logoHeight
   } = useAppContext()
 
   return (
     <>
       <div className="w-full h-60 flex justify-center items-center">
         <img
-          className=""
+          style={{
+            width: logoWidth+'px',
+            height: logoHeight+'px'
+          }}
           src='/image/logo.png'
         ></img>
       </div>

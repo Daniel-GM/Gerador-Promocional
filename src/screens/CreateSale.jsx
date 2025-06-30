@@ -18,12 +18,7 @@ import RenderContent from '../assets/components/RenderContent'
 import InputText from '../assets/components/InputText'
 
 const CreateSale = ({ setStage }) => {
-  const [scale, setScale] = useState(0.5)
-  const [bgColor, setBgColor] = useState("#ffffff")
-  const [textColor, setTextColor] = useState("#000000")
-  const [priceColor, setPriceColor] = useState("#000000")
-  const [logoWidth, setLogoWidth] = useState('auto')
-  const [logoHeight, setLogoHeight] = useState('auto')
+
 
   const {
     arrayProdutos, arrayTabela, total,
@@ -32,9 +27,14 @@ const CreateSale = ({ setStage }) => {
     setNomeProduto, setCodigoProduto, setCodigoBarrasProduto,
     setPage, handleSetSearch, handleArrayItemsSelect,
     styleInput, styleFullWidthCol, gridItemsResponsive,
-    styleButtonConfirm, styleButtonErro, observation,
-    setObservation, adress, setAdress, openingHoursWeek, 
-    setOpeningHoursWeek, openingHoursWeekend, setOpeningHoursWeekend,
+    styleButtonConfirm, styleButtonErro, scale,
+    setScale, bgColor, setBgColor,
+    textColor, setTextColor, priceColor,
+    setPriceColor, logoWidth, setLogoWidth,
+    logoHeight, setLogoHeight, observation, 
+    setObservation, adress, setAdress, 
+    openingHoursWeek, setOpeningHoursWeek, openingHoursWeekend, 
+    setOpeningHoursWeekend,
 
   } = useAppContext()
 
@@ -69,8 +69,8 @@ const CreateSale = ({ setStage }) => {
           <InputText label={'Horário de funcionamento (semana)'} style={styleInput} placeholder={"Segunda a Sexta: 08:00 ás 18:00"} value={openingHoursWeek} setValue={setOpeningHoursWeek} />
           <InputText label={'Horário de funcionamento (final de semana)'} style={styleInput} placeholder={"Sábado: 08:00 ás 12:00"} value={openingHoursWeekend} setValue={setOpeningHoursWeekend} />
 
-          <InputRange value={logoWidth} setValue={setLogoWidth} step={1} min={1} max={492} mode={'px'} label={`Largura: ${logoWidth === 'auto' ? 'auto' : logoWidth+'px'}`} />
-          <InputRange value={logoHeight} setValue={setLogoHeight} step={1} min={1} max={115} mode={'px'} label={`Altura: ${logoHeight  === 'auto' ? 'auto' : logoHeight+'px'}`} />
+          <InputRange value={logoWidth} setValue={setLogoWidth} step={1} min={1} max={984} mode={'px'} label={`Largura: ${logoWidth === 'auto' ? 'auto' : logoWidth + 'px'}`} />
+          <InputRange value={logoHeight} setValue={setLogoHeight} step={1} min={1} max={240} mode={'px'} label={`Altura: ${logoHeight === 'auto' ? 'auto' : logoHeight + 'px'}`} />
 
         </ContentCard>
 

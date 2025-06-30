@@ -1,6 +1,7 @@
 const InputRange = ({ value, setValue, step, min, max, mode, label, sistemaNumerico = "decimal"  }) => {
 
   const newValue = sistemaNumerico === "decimal" ? value : parseInt(value, 16)
+  console.log(newValue)
   
   return (
     <div className="flex flex-col gap-0 justify-between h-full px-2">

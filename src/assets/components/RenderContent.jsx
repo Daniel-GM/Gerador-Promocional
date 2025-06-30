@@ -6,7 +6,7 @@ import { useAppContext } from "../../AppContext"
 const RenderContent = ({ textColor, priceColor }) => {
   const {
     itemsSelect, domain, observation,
-    adress, openingHoursWeek, openingHoursWeekend
+    adress, openingHoursWeek, openingHoursWeekend,
   } = useAppContext()
 
   return (

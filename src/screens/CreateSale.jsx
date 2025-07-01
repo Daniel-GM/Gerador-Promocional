@@ -10,7 +10,7 @@ import Item from "../assets/components/Item"
 
 // Import context
 import { useAppContext } from "../AppContext"
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { toPng } from 'html-to-image'
 import InputRange from '../assets/components/InputRange'
 import InputColor from '../assets/components/InputColor'
@@ -21,21 +21,14 @@ const CreateSale = ({ setStage }) => {
 
 
   const {
-    arrayProdutos, arrayTabela, total,
-    itemsSelect, page, perPage,
-    domain, setArrayTabela, setTabela,
-    setNomeProduto, setCodigoProduto, setCodigoBarrasProduto,
-    setPage, handleSetSearch, handleArrayItemsSelect,
-    styleInput, styleFullWidthCol, gridItemsResponsive,
-    styleButtonConfirm, styleButtonErro, scale,
-    setScale, bgColor, setBgColor,
-    textColor, setTextColor, priceColor,
-    setPriceColor, logoWidth, setLogoWidth,
-    logoHeight, setLogoHeight, observation, 
-    setObservation, adress, setAdress, 
-    openingHoursWeek, setOpeningHoursWeek, openingHoursWeekend, 
-    setOpeningHoursWeekend,
-
+    styleInput, styleFullWidthCol, styleButtonConfirm, 
+    styleButtonErro, scale, setScale, 
+    bgColor, setBgColor, textColor, 
+    setTextColor, priceColor, setPriceColor, 
+    logoWidth, setLogoWidth, logoHeight, 
+    setLogoHeight, observation, setObservation, 
+    adress, setAdress, openingHoursWeek, 
+    setOpeningHoursWeek, openingHoursWeekend, setOpeningHoursWeekend,
   } = useAppContext()
 
   const realImageRef = useRef(null)

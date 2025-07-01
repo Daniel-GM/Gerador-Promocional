@@ -5,7 +5,6 @@ import InputFilter from "../assets/components/InputFilter"
 import Pagination from "../assets/components/Pagination"
 import Item from "../assets/components/Item"
 import { useAppContext } from "../AppContext"
-import InputText from "../assets/components/InputText"
 import InputNumber from "../assets/components/InputNumber"
 import { useEffect } from "react"
 

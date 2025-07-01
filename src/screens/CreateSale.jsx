@@ -16,6 +16,7 @@ import InputRange from '../assets/components/InputRange'
 import InputColor from '../assets/components/InputColor'
 import RenderContent from '../assets/components/RenderContent'
 import InputText from '../assets/components/InputText'
+import InputFile from '../assets/components/InputFile'
 
 const CreateSale = ({ setStage }) => {
 
@@ -62,6 +63,7 @@ const CreateSale = ({ setStage }) => {
           <InputText label={'Horário de funcionamento (semana)'} style={styleInput} placeholder={"Segunda a Sexta: 08:00 ás 18:00"} value={openingHoursWeek} setValue={setOpeningHoursWeek} />
           <InputText label={'Horário de funcionamento (final de semana)'} style={styleInput} placeholder={"Sábado: 08:00 ás 12:00"} value={openingHoursWeekend} setValue={setOpeningHoursWeekend} />
 
+          <InputFile label={"Logo"} />
           <InputRange value={logoWidth} setValue={setLogoWidth} step={1} min={1} max={984} mode={'px'} label={`Largura: ${logoWidth === 'auto' ? 'auto' : logoWidth + 'px'}`} />
           <InputRange value={logoHeight} setValue={setLogoHeight} step={1} min={1} max={240} mode={'px'} label={`Altura: ${logoHeight === 'auto' ? 'auto' : logoHeight + 'px'}`} />
 

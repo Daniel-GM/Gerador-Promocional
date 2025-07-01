@@ -38,12 +38,13 @@ export const AppProvider = ({ children }) => {
   const [bgColor, setBgColor] = useState("#ffffff")
   const [textColor, setTextColor] = useState("#000000")
   const [priceColor, setPriceColor] = useState("#000000")
-  const [logoWidth, setLogoWidth] = useState('auto')
-  const [logoHeight, setLogoHeight] = useState('auto')
+  const [logoWidth, setLogoWidth] = useState("auto")
+  const [logoHeight, setLogoHeight] = useState("auto")
   const [observation, setObservation] = useState("")
   const [adress, setAdress] = useState("")
   const [openingHoursWeek, setOpeningHoursWeek] = useState("")
   const [openingHoursWeekend, setOpeningHoursWeekend] = useState("")
+  const [logo, setLogo] = useState("./image/logo.png")
 
   // Current value for search
   const [searchParams, setSearchParams] = useState({
@@ -113,6 +114,7 @@ export const AppProvider = ({ children }) => {
       textColor, priceColor, logoWidth,
       logoHeight, observation, adress,
       openingHoursWeek, openingHoursWeekend,
+      logo,
 
       /* function */
       setArrayTabela, setTabela, setNomeProduto,
@@ -121,7 +123,7 @@ export const AppProvider = ({ children }) => {
       setBgColor, setTextColor, setPriceColor,
       setLogoWidth, setLogoHeight, setObservation,
       setPerPage, setAdress, setOpeningHoursWeek,
-      setOpeningHoursWeekend,
+      setOpeningHoursWeekend, setLogo,
 
       /* styles */
       styleInput, styleFullWidthCol, gridItemsResponsive,

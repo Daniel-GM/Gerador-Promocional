@@ -8,7 +8,7 @@ const RenderContent = () => {
     itemsSelect, domain, observation,
     adress, openingHoursWeek, openingHoursWeekend,
     textColor, priceColor, logoWidth,
-    logoHeight
+    logoHeight, logo
   } = useAppContext()
 
   return (
@@ -17,9 +17,11 @@ const RenderContent = () => {
         <img
           style={{
             width: logoWidth+'px',
-            height: logoHeight+'px'
+            height: logoHeight+'px',
+            maxWidth: "984px",
+            maxHeight: "240px",
           }}
-          src='./image/logo.png'
+          src={logo}
         ></img>
       </div>
       <div

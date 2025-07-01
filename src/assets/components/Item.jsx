@@ -1,7 +1,6 @@
 const Item = ({ item, domain }) => {
   return (
     <div className="flex items-center w-full h-[92px]">
-      {console.log(`${domain}/uploads/data/${item.foto}`)}
       <img
         src={item.foto ? `${domain}/uploads/data/${item.foto}` : './image/img_error_img_not_found.png'}
         className="w-1/5 h-full rounded-bl-sm rounded-tl-sm"

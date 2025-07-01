@@ -38,14 +38,14 @@ const CreateSale = ({ setStage }) => {
     if (realImageRef.current) {
       toPng(realImageRef.current)
         .then((dataUrl) => {
-          const link = document.createElement('a');
-          link.download = 'encarte.png';
-          link.href = dataUrl;
-          link.click();
+          const link = document.createElement('a')
+          link.download = 'encarte.png'
+          link.href = dataUrl
+          link.click()
         })
         .catch((err) => {
-          console.error('Erro ao gerar imagem', err);
-        });
+          console.error('Erro ao gerar imagem', err)
+        })
     }
   }
 

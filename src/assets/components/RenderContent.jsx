@@ -1,6 +1,6 @@
 // Import icon
-import { CiLocationOn } from "react-icons/ci";
-import { LuAlarmClock } from "react-icons/lu";
+import { CiLocationOn } from "react-icons/ci"
+import { LuAlarmClock } from "react-icons/lu"
 import { useAppContext } from "../../AppContext"
 
 const RenderContent = () => {

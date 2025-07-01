@@ -30,21 +30,21 @@ const Pagination = ({ total, perPage, setPage, currentPage, styleFullWidthCol })
 
   const handlePageChange = (page) => {
     if (page !== '...') {
-      setPage(page);
+      setPage(page)
     }
-  };
+  }
 
   const handleChangePreviousPage = () => {
-    const newCurrentPage = currentPage > 1 ? currentPage - 1 : 1;
-    handlePageChange(newCurrentPage);
-  };
+    const newCurrentPage = currentPage > 1 ? currentPage - 1 : 1
+    handlePageChange(newCurrentPage)
+  }
 
   const handleChangeNextPage = () => {
-    const newCurrentPage = currentPage < maxPages ? currentPage + 1 : maxPages;
-    handlePageChange(newCurrentPage);
-  };
+    const newCurrentPage = currentPage < maxPages ? currentPage + 1 : maxPages
+    handlePageChange(newCurrentPage)
+  }
 
-  const pages = getPaginationRange();
+  const pages = getPaginationRange()
 
   return (
     <div className={`${styleFullWidthCol} h-full flex justify-center items-center flex-wrap gap-2`}>
@@ -86,7 +86,7 @@ const Pagination = ({ total, perPage, setPage, currentPage, styleFullWidthCol })
         {'>'}
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Pagination;
+export default Pagination

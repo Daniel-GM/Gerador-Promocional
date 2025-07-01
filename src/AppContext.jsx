@@ -6,6 +6,9 @@ const AppContext = createContext()
 export const useAppContext = () => useContext(AppContext)
 
 export const AppProvider = ({ children }) => {
+  // .env
+  const API = import.meta.env.VITE_API_BASE
+
   // Style
   const styleInput = "border-2 border-gray-400 p-2 w-full flex items-center justify-between rounded-md"
   const styleFullWidthCol = "col-span-1 md:col-span-2 lg:col-span-3"
@@ -14,8 +17,7 @@ export const AppProvider = ({ children }) => {
   const styleButtonErro = "text-white py-1 px-2 cursor-pointer bg-red-600 rounded-md w-full hover:text-black hover:bg-red-500 transition duration-150"
 
   // Data
-  // const domain = GetDomain()
-  const domain = 'https://proffix.sigesis.com.br'
+  const domain = GetDomain()
   const [arrayProdutos, setArrayProdutos] = useState(null)
   const [arrayTabela, setArrayTabela] = useState(null)
   const [total, setTotal] = useState(0)
@@ -73,7 +75,7 @@ export const AppProvider = ({ children }) => {
 
   const fetchProdutos = async () => {
     try {
-      const response = await fetch('/api/tabela_produtos_promo.php', {
+      const response = await fetch(`${API}tabela_produtos_promo.php`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

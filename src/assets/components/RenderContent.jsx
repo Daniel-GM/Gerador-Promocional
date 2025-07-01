@@ -19,7 +19,7 @@ const RenderContent = () => {
             width: logoWidth+'px',
             height: logoHeight+'px'
           }}
-          src='/image/logo.png'
+          src='./image/logo.png'
         ></img>
       </div>
       <div
@@ -38,7 +38,7 @@ const RenderContent = () => {
               <img
                 src={`${domain}/uploads/data/${item.foto}` || null}
                 className='absolute w-55 h-55 top-10 left-5 rounded-xl'
-                onError={(e) => (e.target.src = '/image/img_error_img_not_found.png')}
+                onError={(e) => (e.target.src = './image/img_error_img_not_found.png')}
               />
               <span
                 className='text-left text-3xl absolute top-10 left-65 line-clamp-4'
@@ -117,7 +117,7 @@ const RenderContent = () => {
         </span>
         <img
           className="max-w-[400px] max-h-[260px]"
-          src='/image/logo.png'
+          src='./image/logo.png'
         ></img>
       </div>
     </>

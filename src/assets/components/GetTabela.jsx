@@ -1,10 +1,12 @@
 import { useEffect } from "react"
 
 const GetTabela = ({ tabela, setArrayTabela, setTabela }) => {
+  // .env
+  const API = import.meta.env.VITE_API_BASE
 
   const sendData = async () => {
     try {
-      const response = await fetch('/api/config_promo.php', {
+      const response = await fetch(`${API}config_promo.php`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
